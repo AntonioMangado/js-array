@@ -75,32 +75,35 @@ function obtenerPares(arr) {
 }
 
 
-// function pintarArray(arr) {
-//     return "Array entrada: " + arr + " String salida: " + arr.toString();
-// }
+function pintarArray(arr) {
+    return `[${arr.join(', ')}]`;
+}
 
 
-// function arrayMapi(arr, fn) {
-
-//     let fnArray = [];
-
-//     for (let i = 0; i < arr.length; i++) {
-//         fnArray.push(arr[i].fn);
-//     }
-
-//     return fnArray;
-// }
+function arrayMapi(arr, callback) {
+    if (!Array.isArray(arr) || typeof callback !== 'function') {
+      throw new Error('Los argumentos deben ser un array y una función.');
+    }
+  
+    return arr.map((element, index) => callback(element, index));
+  }
 
 
 
-// function eliminarDuplicados(arr) {
-
-//     for (let i = 0; i < arr.length; i++) {
-        
-        
-//     } 
-
-// }
+function eliminarDuplicados(array) {
+    const elementosUnicos = {};
+    const resultado = [];
+  
+    for (let i = 0; i < array.length; i++) {
+      const elemento = array[i];
+      if (!elementosUnicos[elemento]) {
+        elementosUnicos[elemento] = true;
+        resultado.push(elemento);
+      }
+    }
+  
+    return resultado;
+  }
 
 let arrayNumerosNeg = [0, -1, -2, -3, -4, -5, -6, -7, -8, -9];
 
